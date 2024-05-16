@@ -1,81 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-Copyright (c) 2006 Google, Inc. All rights reserved.
-
-This program is licensed to you under the Apache License Version 2.0,
-and you may not use this file except in compliance with the Apache License Version 2.0.
-You may obtain a copy of the Apache License Version 2.0 at http://www.apache.org/licenses/LICENSE-2.0.
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the Apache License Version 2.0 is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
--->
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>com.google</groupId>
     <artifactId>google</artifactId>
     <version>5</version>
   </parent>
-
-  <packaging>pom</packaging>
-
   <groupId>com.google.inject</groupId>
   <artifactId>guice-parent</artifactId>
   <version>5.1.0</version>
-
+  <packaging>pom</packaging>
   <name>Google Guice</name>
-
-  <description>
-    Guice is a lightweight dependency injection framework for Java 6 and above
-  </description>
-
+  <description>Guice is a lightweight dependency injection framework for Java 6 and above</description>
   <url>https://github.com/google/guice</url>
   <inceptionYear>2006</inceptionYear>
-
   <organization>
     <name>Google, Inc.</name>
     <url>http://www.google.com</url>
   </organization>
-
-  <mailingLists>
-    <mailingList>
-      <name>Guice Users List</name>
-      <archive>http://groups.google.com/group/google-guice/topics</archive>
-      <subscribe>http://groups.google.com/group/google-guice/subscribe</subscribe>
-      <unsubscribe>http://groups.google.com/group/google-guice/subscribe</unsubscribe>
-      <post>http://groups.google.com/group/google-guice/post</post>
-    </mailingList>
-    <mailingList>
-      <name>Guice Developers List</name>
-      <archive>http://groups.google.com/group/google-guice-dev/topics</archive>
-      <subscribe>http://groups.google.com/group/google-guice-dev/subscribe</subscribe>
-      <unsubscribe>http://groups.google.com/group/google-guice-dev/subscribe</unsubscribe>
-      <post>http://groups.google.com/group/google-guice-dev/post</post>
-    </mailingList>
-  </mailingLists>
-
-  <scm>
-    <connection>scm:git:git://github.com/google/guice.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/google/guice.git</developerConnection>
-    <url>https://github.com/google/guice</url>
-  </scm>
-
-  <issueManagement>
-    <system>Github</system>
-    <url>https://github.com/google/guice/issues/</url>
-  </issueManagement>
-
-  <ciManagement>
-    <system>Travis</system>
-    <url>https://travis-ci.org/google/guice</url>
-  </ciManagement>
-
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -83,9 +26,44 @@ See the Apache License Version 2.0 for the specific language governing permissio
       <distribution>repo</distribution>
     </license>
   </licenses>
-
+  <mailingLists>
+    <mailingList>
+      <name>Guice Users List</name>
+      <subscribe>http://groups.google.com/group/google-guice/subscribe</subscribe>
+      <unsubscribe>http://groups.google.com/group/google-guice/subscribe</unsubscribe>
+      <post>http://groups.google.com/group/google-guice/post</post>
+      <archive>http://groups.google.com/group/google-guice/topics</archive>
+    </mailingList>
+    <mailingList>
+      <name>Guice Developers List</name>
+      <subscribe>http://groups.google.com/group/google-guice-dev/subscribe</subscribe>
+      <unsubscribe>http://groups.google.com/group/google-guice-dev/subscribe</unsubscribe>
+      <post>http://groups.google.com/group/google-guice-dev/post</post>
+      <archive>http://groups.google.com/group/google-guice-dev/topics</archive>
+    </mailingList>
+  </mailingLists>
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+  <modules>
+    <module>bom</module>
+    <module>core</module>
+    <module>extensions</module>
+  </modules>
+  <scm>
+    <connection>scm:git:git://github.com/google/guice.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/google/guice.git</developerConnection>
+    <url>https://github.com/google/guice</url>
+  </scm>
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/google/guice/issues/</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Travis</system>
+    <url>https://travis-ci.org/google/guice</url>
+  </ciManagement>
   <distributionManagement>
-    <!-- override the parent's directory to point to the canonical place, and use https. -->
     <repository>
       <id>google-releases</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
@@ -95,34 +73,13 @@ See the Apache License Version 2.0 for the specific language governing permissio
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <modules>
-    <module>bom</module>
-    <module>core</module>
-    <module>extensions</module>
-  </modules>
-
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
-
   <properties>
-    <!--
-     | The spec version of the public Guice API
-    -->
-    <guice.api.version>1.4</guice.api.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!--
-     | Use "-Dguice.with.jarjar=false" to build without jarjar
-    -->
-    <guice.with.jarjar>true</guice.with.jarjar>
-    <!--
-     | The last stable release version id, used for generating API diffs between released versions
-    -->
     <guice.lastStableRelease>4.2.3</guice.lastStableRelease>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <guice.api.version>1.4</guice.api.version>
     <gpg.skip>true</gpg.skip>
+    <guice.with.jarjar>true</guice.with.jarjar>
   </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -174,19 +131,15 @@ See the Apache License Version 2.0 for the specific language governing permissio
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
     </dependency>
   </dependencies>
-
   <build>
-    <!--
-     | Ant-style directories
-    -->
     <sourceDirectory>${project.basedir}/src</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
     <resources>
       <resource>
         <filtering>false</filtering>
@@ -196,7 +149,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
         </excludes>
       </resource>
     </resources>
-    <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
     <testResources>
       <testResource>
         <filtering>false</filtering>
@@ -208,40 +160,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
     </testResources>
     <pluginManagement>
       <plugins>
-        <!--
-         | Use 'mvn license:format -N' at top of project to add missing headers
-        -->
-        <plugin>
-          <groupId>com.mycila</groupId>
-          <artifactId>license-maven-plugin</artifactId>
-          <version>2.6</version>
-          <configuration>
-            <encoding>UTF-8</encoding>
-            <header>${project.basedir}/lib/build/header.txt</header>
-            <headerDefinitions>
-              <headerDefinition>${project.basedir}/lib/build/header-definitions.xml</headerDefinition>
-            </headerDefinitions>
-            <skipExistingHeaders>true</skipExistingHeaders>
-            <aggregate>true</aggregate>
-            <includes>
-              <include>**/*.java</include>
-            </includes>
-            <excludes>
-              <!-- avoid touching munged/lib/test/example code -->
-              <exclude>**/build/**</exclude>
-              <exclude>**/target/**</exclude>
-              <exclude>**/lib/**</exclude>
-              <exclude>**/test/**</exclude>
-              <exclude>**/example*/**</exclude>
-            </excludes>
-            <mapping>
-              <java>JAVADOC_STYLE</java>
-            </mapping>
-          </configuration>
-        </plugin>
-        <!--
-         | Standard LICENSE and NOTICE files
-        -->
         <plugin>
           <artifactId>maven-remote-resources-plugin</artifactId>
           <version>1.1</version>
@@ -258,9 +176,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
             </execution>
           </executions>
         </plugin>
-        <!--
-         | Make sure we only use Java8 methods
-        -->
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>2.3.2</version>
@@ -277,17 +192,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>animal-sniffer-maven-plugin</artifactId>
           <version>1.16</version>
-          <configuration>
-            <signature>
-              <groupId>org.codehaus.mojo.signature</groupId>
-              <artifactId>java18</artifactId>
-              <version>1.0</version>
-            </signature>
-            <ignores>
-              <!-- workaround https://github.com/mojohaus/animal-sniffer/issues/18 -->
-              <ignore>java.lang.invoke.MethodHandle</ignore>
-            </ignores>
-          </configuration>
           <executions>
             <execution>
               <id>check-java-1.8-compat</id>
@@ -297,19 +201,27 @@ See the Apache License Version 2.0 for the specific language governing permissio
               </goals>
             </execution>
           </executions>
+          <configuration>
+            <signature>
+              <groupId>org.codehaus.mojo.signature</groupId>
+              <artifactId>java18</artifactId>
+              <version>1.0</version>
+            </signature>
+            <ignores>
+              <ignore>java.lang.invoke.MethodHandle</ignore>
+            </ignores>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.5</version>
-          <configuration>
-            <redirectTestOutputToFile>true</redirectTestOutputToFile>
-            <!--<argLine>-Dguice_include_stack_traces=OFF</argLine>-->
-          </configuration>
           <executions>
             <execution>
               <id>stack-traces-off</id>
               <phase>test</phase>
-              <goals><goal>test</goal></goals>
+              <goals>
+                <goal>test</goal>
+              </goals>
               <configuration>
                 <argLine>-Dguice_include_stack_traces=OFF</argLine>
               </configuration>
@@ -317,20 +229,30 @@ See the Apache License Version 2.0 for the specific language governing permissio
             <execution>
               <id>default-test</id>
               <phase>test</phase>
-              <goals><goal>test</goal></goals>
+              <goals>
+                <goal>test</goal>
+              </goals>
               <configuration>
                 <argLine>-Dguice_include_stack_traces=ONLY_FOR_DECLARING_SOURCE</argLine>
               </configuration>
             </execution>
           </executions>
+          <configuration>
+            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          </configuration>
         </plugin>
-        <!--
-         | Shared OSGi manifest configuration
-        -->
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
           <version>3.5.0</version>
+          <executions>
+            <execution>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>manifest</goal>
+              </goals>
+            </execution>
+          </executions>
           <configuration>
             <instructions>
               <module>com.google.inject</module>
@@ -344,37 +266,17 @@ See the Apache License Version 2.0 for the specific language governing permissio
               <_exportcontents>!*.internal.*,$(module).*;version=${guice.api.version}</_exportcontents>
               <_versionpolicy>$(version;==;$(@))</_versionpolicy>
               <_nouses>true</_nouses>
-              <_removeheaders>
-                Embed-Dependency,Embed-Transitive,
+              <_removeheaders>Embed-Dependency,Embed-Transitive,
                 Built-By,Tool,Created-By,Build-Jdk,
                 Originally-Created-By,Archiver-Version,
                 Include-Resource,Private-Package,
-                Ignore-Package,Bnd-LastModified
-              </_removeheaders>
+                Ignore-Package,Bnd-LastModified</_removeheaders>
             </instructions>
           </configuration>
-          <executions>
-            <execution>
-              <phase>prepare-package</phase>
-              <goals>
-                <goal>manifest</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
-        <!--
-         | Package OSGi manifest in final JAR, also create a JAR of the test classes
-        -->
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
-          <configuration>
-            <archive>
-              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-              <!--  Exclude to mirror ant build -->
-          <addMavenDescriptor>false</addMavenDescriptor>
-            </archive>
-          </configuration>
           <executions>
             <execution>
               <phase>package</phase>
@@ -383,10 +285,24 @@ See the Apache License Version 2.0 for the specific language governing permissio
               </goals>
             </execution>
           </executions>
+          <configuration>
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>3.2.0</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
           <configuration>
             <source>8</source>
             <author>false</author>
@@ -410,43 +326,44 @@ See the Apache License Version 2.0 for the specific language governing permissio
                 <title>AssistedInject Extension</title>
                 <packages>com.google.inject.assistedinject</packages>
               </group>
-              <group><title>Dagger Adapter</title>
+              <group>
+                <title>Dagger Adapter</title>
                 <packages>com.google.inject.daggeradapter</packages>
               </group>
-              <group><title>ThrowingProviders Extension</title>
+              <group>
+                <title>ThrowingProviders Extension</title>
                 <packages>com.google.inject.throwingproviders</packages>
               </group>
-              <group><title>Test Libraries Extension</title>
+              <group>
+                <title>Test Libraries Extension</title>
                 <packages>com.google.inject.testing.*</packages>
               </group>
-              <group><title>Grapher Extension</title>
+              <group>
+                <title>Grapher Extension</title>
                 <packages>com.google.inject.grapher:com.google.inject.grapher.*</packages>
               </group>
-              <group><title>Persist Extension</title>
+              <group>
+                <title>Persist Extension</title>
                 <packages>com.google.inject.persist:com.google.inject.persist.*</packages>
               </group>
-              <group><title>Spring Extension</title>
+              <group>
+                <title>Spring Extension</title>
                 <packages>com.google.inject.spring</packages>
               </group>
-              <group><title>Struts2 Extension</title>
+              <group>
+                <title>Struts2 Extension</title>
                 <packages>com.google.inject.struts2</packages>
               </group>
-              <group><title>JNDI Extension</title>
+              <group>
+                <title>JNDI Extension</title>
                 <packages>com.google.inject.jndi</packages>
               </group>
-              <group><title>JMX Extension</title>
+              <group>
+                <title>JMX Extension</title>
                 <packages>com.google.inject.tools.jmx</packages>
               </group>
             </groups>
           </configuration>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
@@ -484,9 +401,6 @@ See the Apache License Version 2.0 for the specific language governing permissio
       </plugins>
     </pluginManagement>
     <plugins>
-      <!--
-       | Sign artifacts.
-      -->
       <plugin>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.4</version>
@@ -494,12 +408,12 @@ See the Apache License Version 2.0 for the specific language governing permissio
           <execution>
             <id>sign-artifacts</id>
             <phase>verify</phase>
-            <goals><goal>sign</goal></goals>
+            <goals>
+              <goal>sign</goal>
+            </goals>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
-
-  <!-- TODO(user): Update the google parent pom or migrate to sonatype's -->
 </project>
